@@ -1,26 +1,37 @@
 // Assignment code here
 
-function RandomLower() {
-    return String.fromCharCode(Math.floor(Math.random() * 26)+ 97);
-}
-// console.log(RandomLower());
+var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lower = "abcdefghijklmnopqrstuvwxyz";
+var number = "123456789";
+var symbol = "!@#$%^&*(){}[]<>,./?";
 
-function RandomUpper() {
-    return String.fromCharCode(Math.floor(Math.random() * 26)+ 65);
-}
-// console.log(RandomUpper());
 
-function RandomNumber() {
-    return String.fromCharCode(Math.floor(Math.random() * 10)+ 48);
-}
-// console.log(RandomNumber());
 
-function RandomSymbol() {
-    const symbols = '!@#$%^&*(){}[]=<>,.';
-    return symbols[Math.floor(Math.random() * symbols.length)];
+function generatePassword() {
+    var allowed = '';
+    if (document.generator.upper.checked) {
+        allowed += upper;
+    }
+    if (document.generator.lower.checked) {
+        allowed += lower;
+    }
+    if (document.generator.number.checked) {
+        allowed += number;
+    }
+    if (document.generator.symbol.checked) {
+        allowed += symbol;
+    }
 
+    var password = '';
+    var length = parsInt(document.generator.length.value);
+    for(var i = 0; i < length; i++) {
+        var random = Math.floor(Math.random() * allowed.length);
+        password += allowed.random;
+    }
+    return password;
 }
-    console.log(RandomSymbol());
+
+
 
 
 
@@ -39,8 +50,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
