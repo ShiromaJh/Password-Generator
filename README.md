@@ -8,7 +8,7 @@ Random Password Generator## Table of Contents:
 This is a Generator that gives the user the ability to create a random password with the following criteria; lower case letters, upper case letters, numbers 0-9, symbols ; (!@#$%^&*(){}[]<>?,./) and bewteen 8 to 128 characters.
 
 ![rpg1](https://user-images.githubusercontent.com/78002356/123748200-83deef00-d879-11eb-831f-5a92843eacd5.JPG)
-[rpg](https://user-images.githubusercontent.com/78002356/114342621-c4a05500-9b21-11eb-9c15-2a65520b1207.JPG)
+![rpg2](https://user-images.githubusercontent.com/78002356/123748270-9b1ddc80-d879-11eb-9ac9-ce7a5fb560d8.JPG)
 
 
 ### License:
