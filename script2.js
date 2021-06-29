@@ -1,63 +1,76 @@
-// Assignment code here
+var lower = ["abcdefghijklmnopqrstuvwxyz"];
+var upper = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+var numbers = ["1234567890"];
+var special = ["!@#$%^&*()+-,./"];
 
-var numbersString = ["1234567890"];
-var lowercaseString = ["abcdefghijklmnopqrstuvwxyz"];
-var uppercaseString = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-var symbolsString = ["!@#$%^&*()"];
+function PasswordPrompts() {
+  var length = parseInt(prompt("How many characters will your password be?"));
+  if (isNaN(length) === true) {
+    alert("Enter a number");
+    return;
+  }
+  if (length < 8) {
+    alert("Password must be between 8 and 128 characters");
+    return;
+  }
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+  if (length > 128) {
+    alert("Password must be between 8 and 128 characters");
+    return;
+  }
+  var uppercase = confirm("do you want uppercase letters?");
+  var lowercase = confirm("Do you want lowercase letters?");
+  var number = confirm("Do you want numbers?");
+  var specialChar = confirm("Do you want special characters?");
 
+  var passArr = [];
 
+  if (number === true) {
+    passArr.push(numbers);
+  }
+  if (lowercase === true) {
+    passArr.push(lower);
+  }
+  if (uppercase === true) {
+    passArr.push(upper);
+  }
+  if (specialChar === true) {
+    passArr.push(special);
+  }
 
-// Write password to the #password input
-function writePassword() {
+  var stringLength = passArr.toString();
+  function generatePassword(length) {
+    result = "";
+    var charactersLength = stringLength.length;
+    for (var i = 0; i < length; i++) {
+      var randPos = Math.floor(Math.random() * charactersLength);
+      var result = stringLength.charAt(randPos);
+      createdArr.push(result);
+    }
+  }
+  createdArr = [];
+  generatePassword(length);
 
-
-
-var uppercase = window.confirm("Would you like uppercase letters?");
-//if true push to another string
-
-var lowercase = window.confirm("Would you like lowercase letters?");
-//if true push to another string
-
-var numbers = window.confirm("Would you like numbers?");
-//if true push to another string
-
-var symbols = window.confirm("Would you like symbols?");
-//if true push to another string
-
-
-var passLength = window.prompt("How many characters would you like your password to be?");
-
-
-
-
-//Check Password Length
-//What if less than 8
-//What if more then 128
-//What if it is blank
-//What if not a #   (not a # js)
-
-
-//Create an empty array
-//us if statements to push to an array || PUSH
-//find way to join strings in array || JOIN
-
-
-//create seperate function using for loop , random # gen on string length 
-
-//in for loop , push grabbed character into empty array for password
-
-
-
-
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+  var completedPassword = createdArr.join("");
+  alert("Here is your generated password: " + completedPassword);
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+var genPass = function () {
+  PasswordPrompts();
+  for (var i = 1; i <= passwordLength; i++) {
+    createdPassword +=
+      passwordType.chosen[
+        Math.floor(Math.random() * passwordType.chosen.length)
+      ];
+  }
+  return createdPassword;
+};
+
+var generateBtn = document.querySelector("#generate");
+
+function Pass() {
+  var pa = genPass();
+  var paString = document.querySelector("#password");
+  paString.value = pa;
+}
+generateBtn.addEventListener("click", Pass);
